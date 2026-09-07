@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>01800Studio | Book Your Appointment</title>
+    <title>01-800 STUDIO | Ixtapan de la Sal</title>
     <style>
         :root {
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --accent-color: #d4af37; /* Gold accent */
+            --bg-color: #0b0b0b;
+            --card-bg: #141414;
+            --accent-red: #8b0000;
             --text-color: #ffffff;
-            --text-muted: #b0b0b0;
+            --text-muted: #a0a0a0;
+            --border-color: #262626;
         }
         * {
             box-sizing: border-box;
@@ -21,40 +22,67 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            padding: 20px;
+            padding: 16px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background-image: radial-gradient(circle at center, #1a0505 0%, #0b0b0b 70%);
         }
         .container {
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             background: var(--card-bg);
             padding: 24px;
-            border-radius: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-            border: 1px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.8);
+            border: 1px solid var(--border-color);
+        }
+        .brand-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 16px;
+        }
+        .est {
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-bottom: 4px;
         }
         h1 {
-            text-align: center;
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-            color: var(--accent-color);
+            font-size: 1.8rem;
             letter-spacing: 1px;
+            color: var(--text-color);
+            font-weight: 900;
+            margin-bottom: 4px;
         }
-        .subtitle {
-            text-align: center;
-            font-size: 0.9rem;
+        .services-tag {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             color: var(--text-muted);
-            margin-bottom: 24px;
+            text-transform: uppercase;
+        }
+        .badge-247 {
+            display: inline-block;
+            background: rgba(139, 0, 0, 0.3);
+            border: 1px solid var(--accent-red);
+            color: #ff6b6b;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
         }
         .form-group {
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
         label {
             display: block;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             margin-bottom: 6px;
             color: var(--text-muted);
             text-transform: uppercase;
@@ -63,28 +91,30 @@
         input, select {
             width: 100%;
             padding: 12px;
-            background: #2a2a2a;
-            border: 1px solid #444;
+            background: #1c1c1c;
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             color: var(--text-color);
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
         input:focus, select:focus {
             outline: none;
-            border-color: var(--accent-color);
+            border-color: var(--accent-red);
         }
         button {
             width: 100%;
             padding: 14px;
-            background: var(--accent-color);
-            color: #121212;
+            background: #ffffff;
+            color: #000000;
             border: none;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 8px;
-            transition: opacity 0.2s;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.2s;
         }
         button:active {
             opacity: 0.8;
@@ -101,6 +131,28 @@
         .confirmation p {
             color: var(--text-muted);
             font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        .wa-btn {
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: bold;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.95rem;
+        }
+        .location {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
     </style>
 </head>
@@ -108,57 +160,59 @@
 
     <div class="container">
         <div id="booking-form-wrapper">
-            <h1>01800STUDIO</h1>
-            <p class="subtitle">Select your service & time</p>
+            <div class="brand-header">
+                <div class="est">Original • Est. 2026</div>
+                <h1>01-800 STUDIO</h1>
+                <div class="services-tag">Barbershop • Salón • Uñas • Pestañas</div>
+            </div>
+
+            <div style="text-align: center;">
+                <span class="badge-247">Abierto 24 Horas / Open 24/7</span>
+            </div>
             
             <form id="bookingForm">
                 <div class="form-group">
-                    <label for="clientName">Your Name</label>
-                    <input type="text" id="clientName" required placeholder="Enter your full name">
+                    <label for="clientName">Tu Nombre / Your Name</label>
+                    <input type="text" id="clientName" required placeholder="Nombre completo">
                 </div>
 
                 <div class="form-group">
-                    <label for="clientPhone">Phone Number</label>
-                    <input type="tel" id="clientPhone" required placeholder="Your phone number">
+                    <label for="clientPhone">Teléfono / Phone</label>
+                    <input type="tel" id="clientPhone" required placeholder="Número de contacto">
                 </div>
 
                 <div class="form-group">
-                    <label for="service">Select Service</label>
+                    <label for="service">Servicio / Service</label>
                     <select id="service" required>
-                        <option value="" disabled selected>Choose a service</option>
-                        <option value="Barber Cut & Style">Barber Cut & Style</option>
-                        <option value="Nail Services">Nail Services</option>
-                        <option value="Lash Treatment">Lash Treatment</option>
-                        <option value="Combo (Hair & Nails)">Combo (Hair & Nails)</option>
+                        <option value="" disabled selected>Selecciona un servicio</option>
+                        <option value="Barbershop">Barbershop</option>
+                        <option value="Salón">Salón</option>
+                        <option value="Uñas">Uñas</option>
+                        <option value="Pestañas">Pestañas</option>
+                        <option value="Combo Varios">Combo Varios</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="date">Date</label>
+                    <label for="date">Fecha / Date</label>
                     <input type="date" id="date" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="time">Time Slot</label>
-                    <select id="time" required>
-                        <option value="" disabled selected>Choose a time</option>
-                        <option value="10:00 AM">10:00 AM</option>
-                        <option value="11:30 AM">11:30 AM</option>
-                        <option value="1:00 PM">1:00 PM</option>
-                        <option value="3:00 PM">3:00 PM</option>
-                        <option value="4:30 PM">4:30 PM</option>
-                        <option value="6:00 PM">6:00 PM</option>
-                    </select>
+                    <label for="time">Hora / Time (24/7)</label>
+                    <input type="text" id="time" required placeholder="Ej. 02:00 AM o 14:00">
                 </div>
 
-                <button type="submit">Confirm Appointment</button>
+                <button type="submit">Reservar Cita</button>
             </form>
+            <div class="location">Ixtapan de la Sal, MX</div>
         </div>
 
         <div id="confirmationBox" class="confirmation">
-            <h2>You're Booked!</h2>
-            <p id="confDetails"></p>
-            <button onclick="resetForm()" style="margin-top: 20px; background: #333; color: #fff;">Book Another</button>
+            <h2>¡Casi Listo!</h2>
+            <p>Haz clic para enviar los detalles de tu cita directo al WhatsApp del estudio:</p>
+            <a id="waLink" href="#" target="_blank" class="wa-btn">Enviar a WhatsApp</a>
+            <button onclick="resetForm()" style="margin-top: 15px; background: #222; color: #fff;">Hacer Otra Cita</button>
         </div>
     </div>
 
@@ -166,17 +220,23 @@
         const form = document.getElementById('bookingForm');
         const wrapper = document.getElementById('booking-form-wrapper');
         const confBox = document.getElementById('confirmationBox');
-        const confDetails = document.getElementById('confDetails');
+        const waLink = document.getElementById('waLink');
+
+        // Owner WhatsApp Number set to 7299933285 with Mexico country code (52)
+        const ownerWhatsApp = "527299933285"; 
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
             const service = document.getElementById('service').value;
             const date = document.getElementById('date').value;
             const time = document.getElementById('time').value;
 
-            confDetails.innerHTML = `Thank you, <strong>${name}</strong>!<br>Your <strong>${service}</strong> is scheduled for <strong>${date}</strong> at <strong>${time}</strong>.`;
+            const message = `¡Nueva Cita 01-800 STUDIO!%0A- Nombre: ${name}%0A- Teléfono: ${phone}%0A- Servicio: ${service}%0A- Fecha: ${date}%0A- Hora: ${time}`;
+            
+            waLink.href = `https://wa.me/${ownerWhatsApp}?text=${message}`;
             
             wrapper.style.display = 'none';
             confBox.style.display = 'block';
